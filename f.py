@@ -1,15 +1,20 @@
-x=eval(input('请输入菱形的行数：'))
-x_upper=(x+1)//2
-for i in range(1,x_upper+1):
-    for j in range(1,x_upper+1-i):
-        print(' ',end='')
-    for k in range(1,2*i):
-        print('*',end='')
-    print()
-x_lower=(x-1)//2
-for i in range(1,x_lower+1):
-    for j in range(1,i+1):
-        print(' ',end='')
-    for k in range(1,2*x_lower-2*i+2):
-        print('*',end='')
-    print()
+total=cnt=0
+smax=0
+smin=100
+score=eval(input('请输入成绩值0~100,-1结束：'))
+while score!=-1:
+    if score<0 or score>100:
+        print('成绩无效')
+        score=eval(input('请输入有效的成绩：'))
+        continue
+    total+=score
+    cnt+=1
+    if score>smax:
+        smax=score
+    if score<smin:
+        smin=score
+    score=eval(input('请输入成绩值0~100,-1结束：'))
+print('最高分：{:.2f}'.format(smax))
+print('最低分：{:.2f}'.format(smin))
+print('总分：{:.2f}'.format(total))
+print('平均分：{:.2f}'.format(total/cnt))
